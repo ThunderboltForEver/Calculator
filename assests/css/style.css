@@ -28,7 +28,8 @@ body {
   height: 120px;
   font-size: 1.3rem;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: flex-end;
 }
 .calculator .calc-body {

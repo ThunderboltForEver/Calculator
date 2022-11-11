@@ -1,7 +1,8 @@
 let getButton = document.querySelectorAll(".btn");
 let getOperator = document.querySelectorAll(".btn-operator");
 let getAllButtons = document.querySelectorAll("button");
-
+let getDiv1 = document.querySelector(".one");
+let getDiv2 = document.querySelector(".two");
 let getScreen = document.querySelector(".screen");
 let getClear = document.querySelectorAll(".clear");
 let number1 = "",
@@ -23,7 +24,8 @@ getAllButtons.forEach((item) => {
 getClear.forEach((item) => {
   item.addEventListener("click", () => {
     reset();
-    getScreen.innerHTML = "";
+    getDiv1.innerText = "";
+    getDiv2.innerText = "";
   });
 });
 
@@ -35,63 +37,75 @@ getButton.forEach((item) => {
     }, 100);
     if (j === 0) {
       if (!e.target.classList.contains("operator")) {
-        number1 += e.target.value;
-        if (i === 0) {
-          getScreen.innerHTML = "";
-          getScreen.style.color = "#fff";
-          getScreen.innerHTML += e.target.value;
-          i++;
+        if (number1.length > 15) {
+          alert("Can't put more than 15 digits");
         } else {
-          getScreen.innerHTML += e.target.value;
-          i++;
+          number1 += e.target.value;
+          if (i === 0) {
+            getDiv1.innerText = "";
+            getDiv2.innerText = "";
+            getDiv1.style.color = "#fff";
+            getDiv1.innerText += e.target.value;
+            i++;
+          } else {
+            getDiv1.innerText += e.target.value;
+            i++;
+          }
         }
       } else if (e.target.classList.contains("equal")) {
         alert("Wrong Operator");
       } else {
         if (i === 0) {
-          getScreen.style.color = "red";
-          getScreen.innerHTML = "Error , click a number";
+          getDiv1.style.color = "red";
+          getDiv1.innerHTML = "Error , click a number";
         } else {
           j++;
-          getScreen.innerHTML += " ";
+          getDiv1.innerText += " ";
           key = e.target.value;
 
-          getScreen.innerHTML += key;
-          getScreen.innerHTML += " ";
+          getDiv1.innerText += key;
+          getDiv1.innerText += " ";
         }
       }
     } else {
       if (!e.target.classList.contains("operator")) {
-        number2 += e.target.value;
-        getScreen.innerHTML += e.target.value;
-        k++;
+        if (number2.length > 15) {
+          alert("Can't put more than 15 digits");
+        } else {
+          number2 += e.target.value;
+          getDiv1.innerText += e.target.value;
+          k++;
+        }
       } else {
         if (k === 0) {
           alert("Enter a number");
         } else {
-          getScreen.innerHTML += " ";
-          getScreen.innerHTML += e.target.value;
-          getScreen.innerHTML += " ";
+          if (e.target.classList.contains("equal")) {
+          } else {
+            getDiv1.innerText += " ";
+            getDiv1.innerText += e.target.value;
+            getDiv1.innerText += " ";
+          }
           if (e.target.classList.contains("equal")) {
             switch (key) {
               case "+":
                 result = parseInt(number1) + parseInt(number2);
-                getScreen.innerHTML += result;
+                getDiv2.innerText += result;
                 reset();
                 break;
               case "-":
                 result = parseInt(number1) - parseInt(number2);
-                getScreen.innerHTML += result;
+                getDiv2.innerText += result;
                 reset();
                 break;
               case "*":
                 result = parseInt(number1) * parseInt(number2);
-                getScreen.innerHTML += result;
+                getDiv2.innerText += result;
                 reset();
                 break;
               case "/":
                 result = parseInt(number1) / parseInt(number2);
-                getScreen.innerHTML += result;
+                getDiv2.innerText += result;
                 reset();
                 break;
 
