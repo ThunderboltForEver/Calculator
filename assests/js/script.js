@@ -1,4 +1,3 @@
-let getCalculator = document.querySelector(".calculator");
 let getButton = document.querySelectorAll(".btn");
 let getOperator = document.querySelectorAll(".btn-operator");
 let getAllButtons = document.querySelectorAll("button");
@@ -39,7 +38,7 @@ getButton.forEach((item) => {
         number1 += e.target.value;
         if (i === 0) {
           getScreen.innerHTML = "";
-          getScreen.style.color = "black";
+          getScreen.style.color = "#fff";
           getScreen.innerHTML += e.target.value;
           i++;
         } else {
