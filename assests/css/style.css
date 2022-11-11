@@ -89,3 +89,7 @@ body {
 .calculator .calc-body button.green {
   color: rgb(16, 177, 16);
 }
+.calculator .calc-body button.change-color {
+  background-color: #444;
+  font-size: 1.1rem;
+}
