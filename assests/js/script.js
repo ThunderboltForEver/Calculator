@@ -42,7 +42,7 @@ getButton.forEach((item) => {
     }, 100);
     if (numberOfSections === 0) {
       if (!e.target.classList.contains("operator")) {
-        if (number1.length > 15) {
+        if (number1.length > 14) {
           alert("Can't put more than 15 digits");
         } else {
           number1 += e.target.value;
@@ -75,7 +75,7 @@ getButton.forEach((item) => {
     } else {
       //Section2
       if (!e.target.classList.contains("operator")) {
-        if (number2.length > 15) {
+        if (number2.length > 14) {
           alert("Can't put more than 15 digits");
         } else {
           if (anotherOperatorEntered === 0) {
