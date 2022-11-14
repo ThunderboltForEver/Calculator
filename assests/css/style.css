@@ -32,6 +32,9 @@ body {
   justify-content: space-between;
   align-items: flex-end;
 }
+.calculator .screen div {
+  word-break: break-all;
+}
 .calculator .calc-body {
   padding: 10px 0;
   display: grid;
